@@ -1,9 +1,9 @@
 /*
  *	video_macosx.h - Some video constants and globals
  *
- *	$Id: video_macosx.h,v 1.6 2003/03/21 06:14:22 nigel Exp $
+ *	$Id: video_macosx.h,v 1.7 2004/01/12 15:29:24 cebix Exp $
  *
- *  Basilisk II (C) 1997-2001 Christian Bauer
+ *  Basilisk II (C) 1997-2004 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

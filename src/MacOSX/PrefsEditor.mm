@@ -2,9 +2,9 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.12 2003/08/16 11:16:36 nigel Exp $
+ *	$Id: PrefsEditor.mm,v 1.13 2004/01/12 15:29:24 cebix Exp $
  *
- *  Basilisk II (C) 1997-2003 Christian Bauer
+ *  Basilisk II (C) 1997-2004 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

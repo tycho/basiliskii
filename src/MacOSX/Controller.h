@@ -1,9 +1,9 @@
 /*
  *	Controller.h - Simple application window management. 
  *
- *	$Id: Controller.h,v 1.5 2003/03/26 00:20:07 nigel Exp $
+ *	$Id: Controller.h,v 1.6 2004/01/12 15:29:24 cebix Exp $
  *
- *  Basilisk II (C) 1997-2001 Christian Bauer
+ *  Basilisk II (C) 1997-2004 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

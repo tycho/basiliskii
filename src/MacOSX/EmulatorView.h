@@ -1,9 +1,9 @@
 /*
  *	EmulatorView.h - Custom NSView for Basilisk II window input & output
  *
- *	$Id: EmulatorView.h,v 1.7 2003/03/26 23:35:23 nigel Exp $
+ *	$Id: EmulatorView.h,v 1.8 2004/01/12 15:29:24 cebix Exp $
  *
- *  Basilisk II (C) 1997-2003 Christian Bauer
+ *  Basilisk II (C) 1997-2004 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

@@ -1,10 +1,10 @@
 /*
- *  $Id: video_macosx.mm,v 1.10 2003/03/26 23:08:20 nigel Exp $
+ *  $Id: video_macosx.mm,v 1.11 2004/01/12 15:29:24 cebix Exp $
  *
  *  video_macosx.mm - Interface between Basilisk II and Cocoa windowing.
  *                    Based on video_amiga.cpp and video_x.cpp
  *
- *  Basilisk II (C) 1997-2003 Christian Bauer
+ *  Basilisk II (C) 1997-2004 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

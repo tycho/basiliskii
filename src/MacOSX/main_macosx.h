@@ -1,9 +1,9 @@
 /*
  *	main_macosx.h - Prototypes for Mac OS X general definitions
  *
- *	$Id: main_macosx.h,v 1.1 2002/03/16 04:00:21 nigel Exp $
+ *	$Id: main_macosx.h,v 1.2 2004/01/12 15:29:24 cebix Exp $
  *
- *  Basilisk II (C) 1997-2002 Christian Bauer
+ *  Basilisk II (C) 1997-2004 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
