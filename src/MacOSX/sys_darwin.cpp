@@ -1,5 +1,5 @@
 /*
- *	$Id: sys_darwin.cpp,v 1.4 2004/01/26 11:11:33 nigel Exp $
+ *	$Id: sys_darwin.cpp,v 1.5 2004/01/27 04:37:23 nigel Exp $
  *
  *	sys_darwin.cpp - Extra Darwin system dependant routines. Called by:
  *
@@ -31,7 +31,9 @@
 #import <IOKit/serial/IOSerialKeys.h>
 #import <IOKit/storage/IOMedia.h>
 #import <IOKit/storage/IOMediaBSDClient.h>
-#import <IOKit/storage/IOBlockStorageDevice.h>
+#ifdef MAC_OS_X_VERSION_10_2
+	#import <IOKit/storage/IOBlockStorageDevice.h>
+#endif
 #import <IOKit/storage/IOCDMedia.h>
 #import <IOKit/storage/IOCDMediaBSDClient.h>
 #import <CoreFoundation/CoreFoundation.h>
@@ -127,6 +129,7 @@ void DarwinAddCDROMPrefs(void)
 
 void DarwinAddFloppyPrefs(void)
 {
+#ifdef MAC_OS_X_VERSION_10_2
 	mach_port_t				masterPort;		// The way to talk to the kernel
 	io_iterator_t			allFloppies;	// List of CD drives on the system
 	CFMutableDictionaryRef	classesToMatch;
@@ -189,6 +192,7 @@ void DarwinAddFloppyPrefs(void)
 
 	IOObjectRelease(nextFloppy);
 	IOObjectRelease(allFloppies);
+#endif
 }
 
 
