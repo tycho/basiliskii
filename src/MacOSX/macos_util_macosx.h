@@ -1,5 +1,5 @@
 /*
- *	$Id: macos_util_macosx.h,v 1.2 2004/01/12 15:29:24 cebix Exp $
+ *	$Id: macos_util_macosx.h,v 1.3 2004/01/28 07:29:38 nigel Exp $
  *
  *	macos_util_macosx.h - Work around clashes with the enums in <CarbonCore/OSUtils.h>
  *						  Based on:
@@ -28,7 +28,7 @@
 
 #include "cpu_emulation.h"
 
-#import <CarbonCore/OSUtils.h>
+#import <Carbon/Carbon.h>
 
 /*
  *  Queues
