@@ -1,7 +1,7 @@
 /*
  *	Controller.m - Simple application window management. 
  *
- *	$Id: Controller.mm,v 1.8 2003/03/26 00:20:54 nigel Exp $
+ *	$Id: Controller.mm,v 1.9 2003/04/01 01:56:41 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -67,7 +67,8 @@
 
 - (void) sendEvent: (NSEvent *)event;
 {
-	if ( [self isAnyEmulatorDisplayingSheets] || ! [self isAnyEmulatorRunning] )
+	if ( [self isAnyEmulatorDisplayingSheets] ||
+			[[thePrefsEditor window] isVisible] || ! [self isAnyEmulatorRunning] )
 		[super sendEvent: event];
 	else
 	{
