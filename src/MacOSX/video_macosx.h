@@ -1,7 +1,7 @@
 /*
  *	video_macosx.h - Some video constants and globals
  *
- *	$Id: video_macosx.h,v 1.4 2002/12/18 12:05:48 nigel Exp $
+ *	$Id: video_macosx.h,v 1.5 2003/01/10 23:18:02 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -48,7 +48,8 @@
 
 
 #define MIN_WIDTH	512
-#define MIN_HEIGHT	342
+#define MIN_HEIGHT	384
+#define MIN_HEIGHTC	342		// For classic emulation
 
 #define MAX_WIDTH	1240
 #define MAX_HEIGHT	1024
