@@ -1,9 +1,9 @@
 /*
  *	EmulatorView.h - Custom NSView for Basilisk II window input & output
  *
- *	$Id: EmulatorView.h,v 1.5 2003/03/11 11:27:20 nigel Exp $
+ *	$Id: EmulatorView.h,v 1.6 2003/03/21 06:41:04 nigel Exp $
  *
- *  Basilisk II (C) 1997-2002 Christian Bauer
+ *  Basilisk II (C) 1997-2003 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -34,9 +34,10 @@
 #endif
 #ifdef NSBITMAP
 	NSBitmapImageRep	*bitmap;
+#else
+	void				*bitmap;
 #endif
 #ifdef CGDRAWBITMAP
-	void				*bitmap;
 	short				bps, spp, bpp;
 	int					bytesPerRow;
 	BOOL				isPlanar, hasAlpha;
@@ -65,6 +66,7 @@
 #endif
 #ifdef CGIMAGEREF
 - (void) readyToDraw: (CGImageRef) image
+			  bitmap: (void *) theBitmap
 		  imageWidth: (short) width
 		 imageHeight: (short) height;
 #endif
