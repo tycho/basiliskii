@@ -1,5 +1,5 @@
 /*
- *	$Id: prefs_macosx.cpp,v 1.1 2002/03/16 04:00:26 nigel Exp $
+ *	$Id: prefs_macosx.cpp,v 1.2 2003/03/26 00:18:05 nigel Exp $
  *
  *  prefs_macosx.cpp - Preferences handling, Unix specific.
  *					   Based on prefs_unix.cpp
@@ -93,5 +93,5 @@ void SavePrefs(void)
 void AddPlatformPrefsDefaults(void)
 {
 	PrefsReplaceString("extfs", "/");
-	PrefsReplaceString("screen", "win/512/342/32");
+	PrefsReplaceString("screen", "win/512/384/16");
 }
