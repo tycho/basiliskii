@@ -1,7 +1,7 @@
 /*
  *	EmulatorView.mm - Custom NSView for Basilisk II graphics output
  *
- *	$Id: EmulatorView.mm,v 1.5 2002/06/05 10:18:51 nigel Exp $
+ *	$Id: EmulatorView.mm,v 1.6 2002/10/06 23:26:07 nigel Exp $
  *
  *  Basilisk II (C) 1997-2002 Christian Bauer
  *
@@ -392,7 +392,7 @@ static NSPoint	mouse;			// Previous/current mouse location
 
 #if DEBUG
 	NSLog(@"In drawRect");
-	[self randomise];
+	//[self randomise];
 #endif
 
 #ifdef NSBITMAP
@@ -412,7 +412,7 @@ static NSPoint	mouse;			// Previous/current mouse location
 //
 
 #ifdef CGDRAWBITMAP
-extern "C" void CGDrawBitmap();
+extern "C" void CGDrawBitmap(...);
 
 - (void) CGDrawBitmap
 {
