@@ -1,7 +1,7 @@
 /*
  *	video_macosx.h - Some video constants and globals
  *
- *	$Id: video_macosx.h,v 1.7 2004/01/12 15:29:24 cebix Exp $
+ *	$Id: video_macosx.h,v 1.8 2004/01/20 23:44:13 nigel Exp $
  *
  *  Basilisk II (C) 1997-2004 Christian Bauer
  *
@@ -27,9 +27,10 @@
 #define CGIMAGEREF
 //#define NSBITMAP
 
-// Using Core Graphics is fastest when rendering 32bit data. Rendering CGImageRefs
-// allows us to use all the bitmaps that BasiliskII supports. When both Basilisk II
-// and OS X are set to 'Thousands', it can achieve over 500fps in a 312x342 window!
+// Using Core Graphics is fastest when rendering 32bit data.
+// Using CGImageRefs allows us to use all the bitmaps that BasiliskII supports.
+// When both Basilisk II and OS X are set to 'Thousands', updating a 312x342
+// window happens at over 500fps under 10.2, and over 600fps on 10.3!
 
 /* When the BasiliskII video driver respects the alpha bits, set this to let us use */
 /* kCGImageAlphaPremultipliedFirst, and to have nice rounded corners on the screen. */
