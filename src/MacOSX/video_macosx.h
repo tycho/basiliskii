@@ -1,7 +1,7 @@
 /*
  *	video_macosx.h - Some video constants and globals
  *
- *	$Id: video_macosx.h,v 1.5 2003/01/10 23:18:02 nigel Exp $
+ *	$Id: video_macosx.h,v 1.6 2003/03/21 06:14:22 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -23,23 +23,13 @@
 #import <video.h>
 
 /* Set the strategy for drawing the bitmap in the Mac OS X window */
-#define CGDRAWBITMAP
-//#define CGIMAGEREF
+//#define CGDRAWBITMAP
+#define CGIMAGEREF
 //#define NSBITMAP
 
-// The frames-per-second benchmark function on my machine does roughly:
-//
-//					OS:	10.1.5		10.2.2
-// CGDRAWBITMAP			15.2		36.6
-// CGIMAGEREF			15.0		27-135(i)
-// NSBITMAP				15.1		26.9
-//
-// (i) This seems to vary wildly between different builds on the same machine.
-//	   I don't know why, but I definately don't trust it. Recently I noticed
-//	   that it also varies by alpha channel strategy:
-//		kCGImageAlphaNone				36.6fps
-//		kCGImageAlphaPremultipliedFirst	112fps
-//		kCGImageAlphaNoneSkipFirst		135fps
+// Using Core Graphics is fastest when rendering 32bit data. Rendering CGImageRefs
+// allows us to use all the bitmaps that BasiliskII supports. When both Basilisk II
+// and OS X are set to 'Thousands', it can achieve over 500fps in a 312x342 window!
 
 /* When the BasiliskII video driver respects the alpha bits, set this to let us use */
 /* kCGImageAlphaPremultipliedFirst, and to have nice rounded corners on the screen. */
