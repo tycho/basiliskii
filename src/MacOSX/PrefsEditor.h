@@ -2,7 +2,7 @@
  *	PrefsEditor.h - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.h,v 1.2 2002/12/18 11:56:12 nigel Exp $
+ *	$Id: PrefsEditor.h,v 1.3 2003/04/02 02:18:05 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -84,7 +84,8 @@
 	IBOutlet NSTextField	*MB,
 							*modem;
 	IBOutlet NSButton		*openGL;
-	IBOutlet NSTextField	*printer;
+	IBOutlet NSTextField	*prefsFile,
+							*printer;
 	IBOutlet NSButton		*quadra900;
 	IBOutlet NSTextField	*ROMfile;
 	IBOutlet NSButton		*screen;
@@ -110,10 +111,8 @@
 
 - (IBAction) AddSCSI:		(id)sender;
 - (IBAction) AddVolume:		(id)sender;
-//- (IBAction) BrowseEtherNet:(id)sender;
 - (IBAction) BrowseExtFS:	(id)sender;
-//- (IBAction) BrowseModem:	(id)sender;
-//- (IBAction) BrowsePrinter:	(id)sender;
+- (IBAction) BrowsePrefs:	(id)sender;
 - (IBAction) BrowseROM:		(id)sender;
 - (IBAction) ChangeBootFrom:	(NSMatrix *)sender;
 - (IBAction) ChangeCPU:			(NSMatrix *)sender;
@@ -133,9 +132,9 @@
 - (IBAction) EditModemDevice:	(NSTextField *)sender;
 - (IBAction) EditPrinterDevice:	(NSTextField *)sender;
 - (IBAction) EditROMpath:		(NSTextField *)sender;
+- (IBAction) LoadPrefs:		(id)sender;
 - (IBAction) RemoveSCSI:	(id)sender;
 - (IBAction) RemoveVolume:	(id)sender;
-//- (const char *) RemoveVolumeEntry;
 - (NSString *) RemoveVolumeEntry;
 - (IBAction) ResetPrefs:	(id)sender;
 - (IBAction) ShowPrefs: 	(id)sender;
