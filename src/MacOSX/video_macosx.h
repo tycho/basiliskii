@@ -1,7 +1,7 @@
 /*
  *	video_macosx.h - Some video constants and globals
  *
- *	$Id: video_macosx.h,v 1.1 2002/03/16 04:00:32 nigel Exp $
+ *	$Id: video_macosx.h,v 1.2 2002/05/30 12:43:32 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -58,10 +58,3 @@ extern	void	resizeWinTo			(const uint16, const uint16);
 
 extern	NSWindow		*the_win;
 extern	EmulatorView	*output;
-
-// These record changes we made in setting full screen mode
-extern	CGDirectDisplayID	theDisplay;
-extern	CFDictionaryRef		originalMode, newMode;
-
-// Macro for checking if full screen mode has started
-#define FULLSCREEN	( theDisplay || originalMode || newMode )
