@@ -1,5 +1,5 @@
 /*
- *	$Id: prefs_macosx.cpp,v 1.5 2004/01/12 15:29:24 cebix Exp $
+ *	$Id: prefs_macosx.cpp,v 1.6 2004/01/26 11:12:46 nigel Exp $
  *
  *  prefs_macosx.cpp - Preferences handling, Unix specific.
  *					   Based on prefs_unix.cpp
@@ -75,6 +75,34 @@ void LoadPrefs(void)
 
 		// No prefs file, save defaults
 		SavePrefs();
+	}
+
+	// Remove Nigel's bad old floppy and serial prefs
+
+	const char	*str;
+	int			tmp = 0;
+
+	while ( (str = PrefsFindString("floppy", tmp) ) != NULL )
+		if ( strncmp(str, "/dev/fd/", 8) == 0 )
+		{
+			printf("Deleting invalid prefs item 'floppy %s'\n", str);
+			PrefsRemoveItem("floppy", tmp);
+		}
+		else
+			++tmp;
+
+	if ( (str = PrefsFindString("seriala") ) != NULL
+				&& strcmp(str, "/dev/ttys0") == 0 )
+	{
+		puts("Deleting invalid prefs item 'seriala /dev/ttys0'");
+		PrefsRemoveItem("seriala");
+	}
+
+	if ( (str = PrefsFindString("serialb") ) != NULL
+				&& strcmp(str, "/dev/ttys1") == 0 )
+	{
+		puts("Deleting invalid prefs item 'serialb /dev/ttys1'");
+		PrefsRemoveItem("serialb");
 	}
 }
 
