@@ -2,7 +2,7 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.3 2002/05/26 00:12:32 nigel Exp $
+ *	$Id: PrefsEditor.mm,v 1.4 2002/06/05 09:41:27 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -309,14 +309,14 @@
 	if ( newbpp == init_depth && newx == init_width &&
 		 newy == init_height && newtype == display_type )
 	{
-		NSLog(@"No changed GUI items in ChangeScreen");
+		D(NSLog(@"No changed GUI items in ChangeScreen"));
 		return;
 	}
 
 	// If we are changing type, supply some sensible defaults
 	if ( newtype != display_type )
 	{
-		NSLog(@"Changing disylay type in ChangeScreen");
+		D(NSLog(@"Changing display type in ChangeScreen"));
 		if ( newtype == DISPLAY_SCREEN )		// If changing to full screen
 		{
 			// supply main screen dimensions as a default
@@ -371,7 +371,8 @@
 
 	if ( display_type != DISPLAY_SCREEN )
 	{
-		NSLog(@"Display type is not SCREEN (%d), resizing window", display_type);
+		D(NSLog(@"Display type is not SCREEN (%d), resizing window",
+														display_type));
 		resizeWinTo(newx, newy);
 	}
 }
@@ -533,7 +534,8 @@
 			if ( strcmp(str, path) == 0 )
 			{
 				PrefsRemoveItem("disk", tmp);
-				D(NSLog(@"%s - Deleted prefs entry \"disk\", %d", __PRETTY_FUNCTION__, tmp));
+				D(NSLog(@"%s - Deleted prefs entry \"disk\", %d",
+											__PRETTY_FUNCTION__, tmp));
 				edited = YES;
 				break;
 			}
@@ -542,7 +544,8 @@
 
 		if ( str == NULL )
 		{
-			NSLog(@"%s - Couldn't find any disk preference to match %s", __PRETTY_FUNCTION__, path);
+			NSLog(@"%s - Couldn't find any disk preference to match %s",
+												__PRETTY_FUNCTION__, path);
 			return NULL;
 		}
 
