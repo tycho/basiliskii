@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.3 2002/10/29 14:27:00 nigel Exp $
+ *  $Id: main_macosx.mm,v 1.4 2002/10/31 08:54:21 nigel Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -223,6 +223,8 @@ bool InitEmulator (void)
 		ErrorAlert(str);
 		QuitEmulator();
 	}
+#else
+	*str = 0;		// Eliminate unused variable warning
 #endif
 
 	// Create areas for Mac RAM and ROM
