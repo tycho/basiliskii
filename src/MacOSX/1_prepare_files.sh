@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: 1_prepare_files.sh,v 1.7 2003/03/24 10:18:23 nigel Exp $
+# $Id: 1_prepare_files.sh,v 1.8 2003/06/03 12:14:45 nigel Exp $
 #
 # Run this to generate all the initial makefiles, etc.
 
@@ -28,7 +28,7 @@ ln -sf ../Unix/sys_unix.cpp .
 ln -sf ../Unix/timer_unix.cpp .
 ln -sf ../Unix/user_strings_unix.h .
 ln -sf ../Unix/install-sh .
-ln -sf ../../README README.txt
+cp -pr ../../README README.txt
 
 #
 # This is how I generated the button images:
