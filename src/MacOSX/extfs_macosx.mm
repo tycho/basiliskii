@@ -1,5 +1,5 @@
 /*
- *	$Id: extfs_macosx.mm,v 1.1 2002/03/16 04:00:20 nigel Exp $
+ *	$Id: extfs_macosx.mm,v 1.2 2002/03/18 11:05:43 nigel Exp $
  *
  *	extfs_macosx.mm - Access Mac OS X Finder and resource information (using Carbon calls).
  *                    Based on:
@@ -77,7 +77,8 @@ void add_path_component(char *path, const char *component)
 
 
 /*
- *  Add rsrc to path name
+ *  Add /rsrc to path name. Note that the 'correct' way to do this is to
+ *  append '/..namedfork/rsrc', but I use this short form to save chars.
  */
 
 void add_rsrc(const char *path, char *dest)
