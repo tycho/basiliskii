@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.4 2002/10/31 08:54:21 nigel Exp $
+ *  $Id: main_macosx.mm,v 1.5 2003/03/24 22:50:55 nigel Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -318,7 +318,7 @@ bool InitEmulator (void)
 
 void QuitEmuNoExit()
 {
-	extern	NSApplication *NSApp;
+//	extern	NSApplication *NSApp;
 
 
 	D(bug("QuitEmulator\n"));
@@ -362,8 +362,8 @@ void QuitEmuNoExit()
 	// Exit preferences
 	PrefsExit();
 
-	// Stop run loop
-	[NSApp terminate: nil];
+	// Stop run loop?
+	//[NSApp terminate: nil];
 }
 
 void QuitEmulator(void)
