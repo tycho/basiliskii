@@ -1,7 +1,7 @@
 /*
  *	EmulatorView.h - Custom NSView for Basilisk II window input & output
  *
- *	$Id: EmulatorView.h,v 1.6 2003/03/21 06:41:04 nigel Exp $
+ *	$Id: EmulatorView.h,v 1.7 2003/03/26 23:35:23 nigel Exp $
  *
  *  Basilisk II (C) 1997-2003 Christian Bauer
  *
@@ -84,6 +84,9 @@
 
 - (void) disableDrawing;
 - (void) startedFullScreen: (CGDirectDisplayID) theDisplay;
+
+- (void) blacken;
+- (void) clear;
 
 - (short) width;
 - (short) height;
