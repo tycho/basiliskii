@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.1 2002/03/16 04:00:24 nigel Exp $
+ *  $Id: main_macosx.mm,v 1.2 2002/05/25 23:58:51 nigel Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -482,25 +482,6 @@ void ClearInterruptFlag(uint32 flag)
 /*
  *  Display error alert
  */
-
-//#import <Foundation/NSString.h>
-#import <AppKit/NSPanel.h>
-
-extern "C"
-{
-	int NSRunAlertPanel				(NSString *title, NSString *msg,
-									 NSString *defaultButton,
-									 NSString *alternateButton,
-									 NSString *otherButton, ...);
-	int NSRunInformationalAlertPanel(NSString *title, NSString *msg,
-									 NSString *defaultButton,
-									 NSString *alternateButton,
-									 NSString *otherButton, ...);
-	int NSRunCriticalAlertPanel		(NSString *title, NSString *msg,
-									 NSString *defaultButton,
-									 NSString *alternateButton,
-									 NSString *otherButton, ...);
-}
 
 void ErrorAlert(const char *text)
 {
