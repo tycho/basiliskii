@@ -1,7 +1,7 @@
 /*
  *	Controller.h - Simple application window management. 
  *
- *	$Id: Controller.h,v 1.6 2004/01/12 15:29:24 cebix Exp $
+ *	$Id: Controller.h,v 1.7 2004/01/28 07:21:32 nigel Exp $
  *
  *  Basilisk II (C) 1997-2004 Christian Bauer
  *
@@ -23,8 +23,8 @@
 #import <Cocoa/Cocoa.h>
 #import "PrefsEditor.h"
 
-// If the application supports multiple windows, define this:
-// #define ENABLE_MULTIPLE
+// If the application supports multiple windows,
+// ENABLE_MULTIPLE can be defined in config.h
 
 @interface Controller : NSApplication
 {
