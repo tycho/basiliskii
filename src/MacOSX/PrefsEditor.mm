@@ -2,7 +2,7 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.8 2003/03/21 12:04:34 nigel Exp $
+ *	$Id: PrefsEditor.mm,v 1.9 2003/03/25 01:47:37 nigel Exp $
  *
  *  Basilisk II (C) 1997-2003 Christian Bauer
  *
@@ -673,7 +673,7 @@ shouldProceedAfterError: (NSDictionary *) errorDict
 	[height setIntValue: init_height];
 	[depth	setIntValue: init_depth];
 
-	[window setState: NO];
+	[screen setState: NO];
 	switch ( display_type )
 	{
 		case DISPLAY_WINDOW: [window setState: YES]; break;
