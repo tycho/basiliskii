@@ -1,7 +1,7 @@
 /*
  *	EmulatorView.mm - Custom NSView for Basilisk II graphics output
  *
- *	$Id: EmulatorView.mm,v 1.2 2002/03/18 11:00:27 nigel Exp $
+ *	$Id: EmulatorView.mm,v 1.3 2002/05/12 10:34:16 nigel Exp $
  *
  *  Basilisk II (C) 1997-2002 Christian Bauer
  *
@@ -69,13 +69,6 @@
 	return [self mouseInView];
 }
 
-/*****
-- (BOOL) acceptsFirstResponder
-{
-//	return YES;
-	return [self mouseInView];
-}
-*****/
 
 #include <adb.h>
 
