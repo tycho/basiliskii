@@ -2,7 +2,7 @@
  *	Emulator.mm - Class whose actions are attached to GUI widgets in a window,
  *				  used to control a single Basilisk II emulated Macintosh. 
  *
- *	$Id: Emulator.mm,v 1.4 2002/12/18 11:50:12 nigel Exp $
+ *	$Id: Emulator.mm,v 1.5 2003/03/26 01:45:31 nigel Exp $
  *
  *  Basilisk II (C) 1997-2002 Christian Bauer
  *
@@ -357,14 +357,14 @@ uint8 lastXPRAM[XPRAM_SIZE];		// Copy of PRAM
 
 - (void) emulThread
 {
-	extern uint8		*RAMBaseHost, *ROMBaseHost;
 	NSAutoreleasePool	*pool = [NSAutoreleasePool new];
 
-	InitEmulator();
+	if ( ! InitEmulator() )
+	{
+		[redraw suspend];		// Stop the barberpole
 
-	if ( RAMBaseHost == NULL || ROMBaseHost == NULL )
-		ErrorSheet(@"Cannot start Emulator",
-				   @"Emulator memory not allocated", nil, win);
+		ErrorSheet(@"Cannot start Emulator", @"", @"Quit", win);
+	}
 	else
 	{
 		memcpy(lastXPRAM, XPRAM, XPRAM_SIZE);
@@ -374,19 +374,15 @@ uint8 lastXPRAM[XPRAM_SIZE];		// Copy of PRAM
 		while ( screen == nil )	// If we are still loading from Nib?
 			[NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow: 1.0]];
 
-//		[screen readyToDraw];
-		[self   runUpdate];
+		[self   runUpdate];		// Set the window close gadget to dimpled
 
 		Start680x0();			// Start 68k and jump to ROM boot routine
 
 		puts ("Emulator exited normally");
 	}
 
-	running = NO;
-	uaeCreated = NO;
-	[self runUpdate];			// Update button & dimple
 	[pool release];
-	[self exitThreads];
+	QuitEmulator();
 }
 
 - (void) RTCinterrupt
