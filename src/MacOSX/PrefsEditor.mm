@@ -2,7 +2,7 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.7 2003/03/21 06:44:14 nigel Exp $
+ *	$Id: PrefsEditor.mm,v 1.8 2003/03/21 12:04:34 nigel Exp $
  *
  *  Basilisk II (C) 1997-2003 Christian Bauer
  *
@@ -296,7 +296,7 @@
 #endif
 }
 
-// This is called when any of the screen/openGL/window,
+// This is called when the screen/window,
 // width, height or depth is clicked.
 //
 // Note that sender may not actually be an NSMatrix.
@@ -311,9 +311,7 @@
 	short newtype;
 	char  str[20];
 
-	if ( cell == openGL )
-		newtype = DISPLAY_OPENGL;
-	else if ( cell == screen )
+	if ( cell == screen )
 		newtype = DISPLAY_SCREEN;
 	else if ( cell == window )
 		newtype = DISPLAY_WINDOW;
@@ -372,12 +370,6 @@
 				sprintf(str, "win/%hd/%hd/%hd",  newx, newy, newbpp);
 			else
 				sprintf(str, "win/%hd/%hd",  newx, newy);
-			break;
-		case DISPLAY_OPENGL:
-			if ( newbpp )
-				sprintf(str, "opengl/%hd/%hd/%hd",  newx, newy, newbpp);
-			else
-				sprintf(str, "opengl/%hd/%hd",  newx, newy);
 			break;
 		case DISPLAY_SCREEN:
 			if ( newbpp )
@@ -685,7 +677,6 @@ shouldProceedAfterError: (NSDictionary *) errorDict
 	switch ( display_type )
 	{
 		case DISPLAY_WINDOW: [window setState: YES]; break;
-		case DISPLAY_OPENGL: [openGL setState: YES]; break;
 		case DISPLAY_SCREEN: [screen setState: YES]; break;
 	}
 
