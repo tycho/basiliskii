@@ -4,7 +4,7 @@
 # Created: 1993-05-16
 # Public domain
 
-# $Id: mkinstalldirs,v 1.1 1999/10/23 17:57:57 cebix Exp $
+# $Id: mkinstalldirs,v 1.2 2001/09/18 17:16:47 cebix Exp $
 
 errstatus=0
 
