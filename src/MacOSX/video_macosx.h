@@ -1,7 +1,7 @@
 /*
  *	video_macosx.h - Some video constants and globals
  *
- *	$Id: video_macosx.h,v 1.8 2004/01/20 23:44:13 nigel Exp $
+ *	$Id: video_macosx.h,v 1.9 2004/01/27 11:28:19 nigel Exp $
  *
  *  Basilisk II (C) 1997-2004 Christian Bauer
  *
@@ -35,7 +35,7 @@
 /* When the BasiliskII video driver respects the alpha bits, set this to let us use */
 /* kCGImageAlphaPremultipliedFirst, and to have nice rounded corners on the screen. */
 //#define CG_USE_ALPHA
-/* At the moment, it writes in the fill 32bits :-( */
+/* At the moment, it writes in the full 32bits :-( */
 
 
 #define MIN_WIDTH	512
