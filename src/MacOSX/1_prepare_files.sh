@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: 1_prepare_files.sh,v 1.3 2002/10/29 14:18:22 nigel Exp $
+# $Id: 1_prepare_files.sh,v 1.4 2003/03/21 12:22:35 nigel Exp $
 #
 # Run this to generate all the initial makefiles, etc.
 
@@ -28,8 +28,21 @@ ln -sf ../Unix/user_strings_unix.h .
 ln -sf ../Unix/install-sh .
 ln -sf ../../README README.txt
 
+T=/System/Library/CoreServices/loginwindow.app/Resources
+tiffutil -cat $T/resetH.tif	-out English.lproj/MainMenu.nib/resetH.tiff
+tiffutil -cat $T/resetN.tif	-out English.lproj/MainMenu.nib/resetN.tiff
+tiffutil -cat $T/shutdownH.tif	-out English.lproj/MainMenu.nib/shutdownH.tiff
+tiffutil -cat $T/shutdownN.tif	-out English.lproj/MainMenu.nib/shutdownN.tiff
+unset T
+
+#
+# Generate ./configure from configure.in
+#
 autoconf
 
+#
+# Generate config.h.in from configure.in
+#
 autoheader
 
 if test -z "$*"; then
