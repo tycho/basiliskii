@@ -1,7 +1,7 @@
 /*
  *	EmulatorView.mm - Custom NSView for Basilisk II graphics output
  *
- *	$Id: EmulatorView.mm,v 1.1 2002/03/16 04:00:18 nigel Exp $
+ *	$Id: EmulatorView.mm,v 1.2 2002/03/18 11:00:27 nigel Exp $
  *
  *  Basilisk II (C) 1997-2002 Christian Bauer
  *
@@ -261,13 +261,31 @@ static int prevFlags;
 - (void) keyDown: (NSEvent *) event
 {
 	if ( [self processKeyEvent: event] )
-		ADBKeyDown([event keyCode]);
+	{
+		int	code = [event keyCode];
+
+		if ( code == 126 )	code = 0x3e;	// CURS_UP
+		if ( code == 125 )	code = 0x3d;	// CURS_DOWN
+		if ( code == 124 )	code = 0x3c;	// CURS_RIGHT
+		if ( code == 123 )	code = 0x3b;	// CURS_LEFT
+
+		ADBKeyDown(code);
+	}
 }
 
 - (void) keyUp: (NSEvent *) event
 {
 	if ( [self processKeyEvent: event] )
-		ADBKeyUp([event keyCode]);
+	{
+		int	code = [event keyCode];
+
+		if ( code == 126 )	code = 0x3e;	// CURS_UP
+		if ( code == 125 )	code = 0x3d;	// CURS_DOWN
+		if ( code == 124 )	code = 0x3c;	// CURS_RIGHT
+		if ( code == 123 )	code = 0x3b;	// CURS_LEFT
+
+		ADBKeyUp(code);
+	}
 }
 
 static NSPoint	mouse;			// Previous/current mouse location
