@@ -2,7 +2,7 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.11 2003/08/16 02:51:46 nigel Exp $
+ *	$Id: PrefsEditor.mm,v 1.12 2003/08/16 11:16:36 nigel Exp $
  *
  *  Basilisk II (C) 1997-2003 Christian Bauer
  *
@@ -298,10 +298,8 @@ extern string UserPrefsPath;	// from prefs_unix.cpp
 - (IBAction) ChangeKeyboard: (NSPopUpButton *)sender
 {
 	// Deselest current item
-	int		val = PrefsFindInt32("keyboardtype");
-	int		current = [keyboard indexOfItemWithTag: val];
-
-	if ( current )
+	int  current = [keyboard indexOfItemWithTag: PrefsFindInt32("keyboardtype")];
+	if ( current != -1 )
 		[[keyboard itemAtIndex: current] setState: FALSE];
 
 	PrefsReplaceInt32("keyboardtype", [[sender selectedItem] tag]);
@@ -774,7 +772,9 @@ shouldProceedAfterError: (NSDictionary *) errorDict
 	// Lists of thingies:
 
 	val = PrefsFindInt32("keyboardtype");
-	[keyboard selectItemAtIndex: [keyboard indexOfItemWithTag: val]];
+	tmp = [keyboard indexOfItemWithTag: val];
+	if ( tmp != -1 )
+		[keyboard selectItemAtIndex: tmp];
 	for ( tmp = 0; tmp < [keyboard numberOfItems]; ++tmp )
 	{
 		NSMenuItem	*type = [keyboard itemAtIndex: tmp];
