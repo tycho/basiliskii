@@ -2,9 +2,9 @@
  *	Emulator.mm - Class whose actions are attached to GUI widgets in a window,
  *				  used to control a single Basilisk II emulated Macintosh. 
  *
- *	$Id: Emulator.mm,v 1.10 2004/05/25 07:37:52 nigel Exp $
+ *	$Id: Emulator.mm,v 1.11 2005/01/30 21:42:13 gbeauche Exp $
  *
- *  Basilisk II (C) 1997-2004 Christian Bauer
+ *  Basilisk II (C) 1997-2005 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

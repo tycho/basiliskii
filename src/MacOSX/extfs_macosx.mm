@@ -1,12 +1,12 @@
 /*
- *	$Id: extfs_macosx.mm,v 1.3 2004/01/12 15:29:24 cebix Exp $
+ *	$Id: extfs_macosx.mm,v 1.4 2005/01/30 21:42:13 gbeauche Exp $
  *
  *	extfs_macosx.mm - Access Mac OS X Finder and resource information (using Carbon calls).
  *                    Based on:
  *
  *  extfs_unix.cpp - MacOS file system for access native file system access, Unix specific stuff
  *
- *  Basilisk II (C) 1997-2004 Christian Bauer
+ *  Basilisk II (C) 1997-2005 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

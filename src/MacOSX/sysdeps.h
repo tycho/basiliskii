@@ -2,9 +2,9 @@
  *	sysdeps.h - System dependent definitions for Mac OS X.
  *				Based on Unix version
  *
- *	$Id: sysdeps.h,v 1.8 2004/01/26 12:06:02 nigel Exp $
+ *	$Id: sysdeps.h,v 1.9 2005/01/30 21:42:13 gbeauche Exp $
  *
- *	Basilisk II (C) 1997-2004 Christian Bauer
+ *	Basilisk II (C) 1997-2005 Christian Bauer
  *
  *	This program is free software; you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by

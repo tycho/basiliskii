@@ -1,5 +1,5 @@
 /*
- *	$Id: sys_darwin.cpp,v 1.6 2004/05/02 11:12:07 nigel Exp $
+ *	$Id: sys_darwin.cpp,v 1.7 2005/01/30 21:42:13 gbeauche Exp $
  *
  *	sys_darwin.cpp - Extra Darwin system dependant routines. Called by:
  *
@@ -7,7 +7,7 @@
  *
  *	Based on Apple's CDROMSample.c and Evan Jones' cd-discid.c patches
  *
- *  Basilisk II (C) 1997-2004 Christian Bauer
+ *  Basilisk II (C) 1997-2005 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

@@ -1,5 +1,5 @@
 /*
- *	$Id: extfs_macosx.h,v 1.3 2004/01/28 07:29:38 nigel Exp $
+ *	$Id: extfs_macosx.h,v 1.4 2005/01/30 21:42:13 gbeauche Exp $
  *
  *	extfs_macosx.h - Work around some symbol clashes between
  *					 CarbonCore and Basilisk II header files.
@@ -7,7 +7,7 @@
  *
  *  extfs_defs.h - MacOS types and structures for external file system
  *
- *  Basilisk II (C) 1997-2004 Christian Bauer
+ *  Basilisk II (C) 1997-2005 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
