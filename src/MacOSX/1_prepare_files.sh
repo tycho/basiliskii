@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: 1_prepare_files.sh,v 1.6 2003/03/24 06:18:20 nigel Exp $
+# $Id: 1_prepare_files.sh,v 1.7 2003/03/24 10:18:23 nigel Exp $
 #
 # Run this to generate all the initial makefiles, etc.
 
@@ -25,6 +25,7 @@ else
 fi
 
 ln -sf ../Unix/sys_unix.cpp .
+ln -sf ../Unix/timer_unix.cpp .
 ln -sf ../Unix/user_strings_unix.h .
 ln -sf ../Unix/install-sh .
 ln -sf ../../README README.txt
