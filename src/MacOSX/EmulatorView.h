@@ -1,7 +1,7 @@
 /*
  *	EmulatorView.h - Custom NSView for Basilisk II window input & output
  *
- *	$Id: EmulatorView.h,v 1.4 2002/12/18 11:53:11 nigel Exp $
+ *	$Id: EmulatorView.h,v 1.5 2003/03/11 11:27:20 nigel Exp $
  *
  *  Basilisk II (C) 1997-2002 Christian Bauer
  *
@@ -50,7 +50,8 @@
 						fullScreen;	// Is this Emulator using the whole screen?
 
 	NSRect				displayBox;	// Cached dimensions of the screen
-	int					screen_height;
+
+	int					screen_height; // Height of the screen with the key window
 }
 
 - (void) benchmark;
@@ -88,6 +89,7 @@
 - (BOOL) isFullScreen;
 - (BOOL) mouseInView: (NSEvent *) event;
 - (BOOL) mouseInView;
+- (void) fullscreenMouseMove;
 - (BOOL) processMouseMove: (NSEvent *) event;
 
 #ifdef CGDRAWBITMAP
