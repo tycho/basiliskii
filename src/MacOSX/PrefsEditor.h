@@ -2,7 +2,7 @@
  *	PrefsEditor.h - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.h,v 1.1 2002/03/16 04:00:27 nigel Exp $
+ *	$Id: PrefsEditor.h,v 1.2 2002/12/18 11:56:12 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -135,7 +135,8 @@
 - (IBAction) EditROMpath:		(NSTextField *)sender;
 - (IBAction) RemoveSCSI:	(id)sender;
 - (IBAction) RemoveVolume:	(id)sender;
-- (const char *) RemoveVolumeEntry;
+//- (const char *) RemoveVolumeEntry;
+- (NSString *) RemoveVolumeEntry;
 - (IBAction) ResetPrefs:	(id)sender;
 - (IBAction) ShowPrefs: 	(id)sender;
 - (IBAction) SavePrefs:		(id)sender;
