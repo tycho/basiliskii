@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.2 2002/05/25 23:58:51 nigel Exp $
+ *  $Id: main_macosx.mm,v 1.3 2002/10/29 14:27:00 nigel Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -96,10 +96,10 @@ uint8 *ScratchMem = NULL;			// Scratch memory for Mac ROM writes
 static timer_t timer;				// 60Hz timer
 #endif
 
-//#ifdef ENABLE_MON
+#ifdef ENABLE_MON
 static struct sigaction sigint_sa;	// sigaction for SIGINT handler
 static void sigint_handler(...);
-//#endif
+#endif
 
 #if REAL_ADDRESSING
 static bool lm_area_mapped = false;	// Flag: Low Memory area mmap()ped
