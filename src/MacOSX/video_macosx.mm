@@ -1,5 +1,5 @@
 /*
- *  $Id: video_macosx.mm,v 1.12 2004/01/20 23:41:11 nigel Exp $
+ *  $Id: video_macosx.mm,v 1.13 2004/01/27 04:39:33 nigel Exp $
  *
  *  video_macosx.mm - Interface between Basilisk II and Cocoa windowing.
  *                    Based on video_amiga.cpp and video_x.cpp
@@ -101,6 +101,9 @@ colours_from_depth(const uint16 depth)
 bool
 parse_screen_prefs(const char *mode_str)
 {
+	if ( ! mode_str )
+		return false;
+
 	if (sscanf(mode_str, "win/%hd/%hd/%hd",
 				&init_width, &init_height, &init_depth) == 3)
 		display_type = DISPLAY_WINDOW;
