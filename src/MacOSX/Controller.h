@@ -1,7 +1,7 @@
 /*
  *	Controller.h - Simple application window management. 
  *
- *	$Id: Controller.h,v 1.2 2002/03/16 10:03:35 nigel Exp $
+ *	$Id: Controller.h,v 1.3 2002/05/30 12:50:21 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -26,7 +26,6 @@
 // If the application supports multiple windows, define this:
 // #define ENABLE_MULTIPLE
 
-//@interface Controller : NSObject
 @interface Controller : NSApplication
 {
 #ifdef ENABLE_MULTIPLE
@@ -48,6 +47,7 @@
 - (IBAction) TerminateAll:	(id)sender;
 #endif
 
+- (BOOL)  isAnyEmulatorDisplayingSheets;
 - (BOOL)  isAnyEmulatorRunning;
 - (short) emulatorCreatedCount;		// If any emulator environments have been setup, count how many
 
