@@ -1,7 +1,7 @@
 /*
  *	video_macosx.h - Some video constants and globals
  *
- *	$Id: video_macosx.h,v 1.2 2002/05/30 12:43:32 nigel Exp $
+ *	$Id: video_macosx.h,v 1.3 2002/06/02 12:20:38 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -46,10 +46,8 @@ extern	uint8	display_type,
 				frame_skip;
 extern	uint16	init_width,
 				init_height,
-				init_depth,
-				screen_height;
+				init_depth;
 
-extern	uint8	bits_from_depth		(const video_depth);
 extern	bool	parse_screen_prefs	(const char *);
 extern	void	resizeWinTo			(const uint16, const uint16);
 
