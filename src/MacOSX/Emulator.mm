@@ -2,7 +2,7 @@
  *	Emulator.mm - Class whose actions are attached to GUI widgets in a window,
  *				  used to control a single Basilisk II emulated Macintosh. 
  *
- *	$Id: Emulator.mm,v 1.6 2003/03/26 23:04:46 nigel Exp $
+ *	$Id: Emulator.mm,v 1.7 2003/08/16 11:14:50 nigel Exp $
  *
  *  Basilisk II (C) 1997-2002 Christian Bauer
  *
@@ -190,8 +190,17 @@
 
 - (IBAction) Restart: (id)sender
 {
+	if ( ! running )
+	{
+		running = YES;						// Start emulator
+		[self runUpdate];
+		[self Resume: nil];
+	}
+
 	if ( running )
-//		reset680x0();
+#ifdef UAE_CPU_HAS_RESET
+		reset680x0();
+#else
 	{
 		uaeCreated = NO;
 		[redraw suspend];
@@ -219,6 +228,7 @@
 		if ( display_type != DISPLAY_SCREEN )
 			[redraw resume];
 	}
+#endif
 }
 
 - (IBAction) Resume: (id)sender
