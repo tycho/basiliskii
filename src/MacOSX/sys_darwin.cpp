@@ -1,5 +1,5 @@
 /*
- *	$Id: sys_darwin.cpp,v 1.2 2004/01/12 15:29:24 cebix Exp $
+ *	$Id: sys_darwin.cpp,v 1.3 2004/01/20 23:31:46 nigel Exp $
  *
  *	sys_darwin.cpp - Extra Darwin system dependant routines. Called by:
  *
@@ -74,7 +74,7 @@ void DarwinAddCDROMPrefs(void)
 		// has a property with key kIOMediaEjectable.  We limit
 		// the match only to those CDs that are actually ejectable
 		CFDictionarySetValue(classesToMatch,
-							 CFSTR(kIOMediaEjectable), kCFBooleanTrue); 
+							 CFSTR(kIOMediaEjectableKey), kCFBooleanTrue); 
 	}
 
 	if ( IOServiceGetMatchingServices(masterPort,
@@ -90,8 +90,9 @@ void DarwinAddCDROMPrefs(void)
 	{
 		char		bsdPath[MAXPATHLEN];
 		CFTypeRef	bsdPathAsCFString =
-						IORegistryEntryCreateCFProperty(nextCD, CFSTR(kIOBSDName),
-															kCFAllocatorDefault, 0);
+						IORegistryEntryCreateCFProperty(nextCD,
+														CFSTR(kIOBSDNameKey),
+														kCFAllocatorDefault, 0);
 		*bsdPath = '\0';
 		if ( bsdPathAsCFString )
 		{
