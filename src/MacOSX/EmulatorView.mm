@@ -1,7 +1,7 @@
 /*
  *	EmulatorView.mm - Custom NSView for Basilisk II windowed graphics output
  *
- *	$Id: EmulatorView.mm,v 1.10 2003/03/26 23:37:42 nigel Exp $
+ *	$Id: EmulatorView.mm,v 1.11 2003/04/02 00:37:34 nigel Exp $
  *
  *  Basilisk II (C) 1997-2003 Christian Bauer
  *
@@ -396,8 +396,8 @@ static NSPoint	mouse;			// Previous/current mouse location
 
 	mouse = location;
 
-	int	mouseY = y - y * mouse.y / [self height];
-	int	mouseX =	 x * mouse.x / [self width];
+	int	mouseY = y - (int) (y * mouse.y / [self height]);
+	int	mouseX =	 (int) (x * mouse.x / [self width]);
 	// If the view was not resizable, then this would be simpler:
 	// int	mouseY = y - (int) mouse.y;
 	// int	mouseX =	 (int) mouse.x;
@@ -483,10 +483,10 @@ static NSPoint	mouse;			// Previous/current mouse location
   #ifdef NSBITMAP
 							= [bitmap bitmapData];
   #else
-							= bitmap;
+							= (unsigned char *) bitmap;
   #endif
 
-	memset(data, val, numBytes);
+	memset(data, val, (long unsigned)numBytes);
 }
 
 - (void) blacken	// Set bitmap black
