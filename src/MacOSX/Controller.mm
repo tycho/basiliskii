@@ -1,7 +1,7 @@
 /*
  *	Controller.m - Simple application window management. 
  *
- *	$Id: Controller.mm,v 1.2 2002/03/16 10:00:18 nigel Exp $
+ *	$Id: Controller.mm,v 1.3 2002/03/18 10:48:25 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -150,11 +150,12 @@
 	
 	if ( tmp < [emulators count] )		// i.e. if we exited the for loop
 #else
-	if ( [theEmulator isRunning] && [[theEmulator window] isKeyWindow ] )
+	if ( FULLSCREEN ||
+		[theEmulator isRunning] && [[theEmulator window] isKeyWindow ] )
 #endif
 	{
 		view = [theEmulator screen];
-
+NSLog(@"Got a key event - %d\n", [event keyCode]);
 		switch ( type )
 		{
 			case NSKeyUp:
