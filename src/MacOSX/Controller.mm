@@ -1,7 +1,7 @@
 /*
  *	Controller.m - Simple application window management. 
  *
- *	$Id: Controller.mm,v 1.4 2002/05/30 12:50:21 nigel Exp $
+ *	$Id: Controller.mm,v 1.5 2002/12/18 11:50:12 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -42,7 +42,7 @@
 - (id) init
 {
 #ifdef ENABLE_MULTIPLE
-	emulators  = [[NSMutableArray alloc] init];
+	emulators  = [NSMutableArray new];
 #endif
 	return [super init];
 }
