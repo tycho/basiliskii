@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.6 2003/03/25 01:44:16 nigel Exp $
+ *  $Id: main_macosx.mm,v 1.7 2003/03/26 00:26:38 nigel Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -172,7 +172,7 @@ int main(int argc, char **argv)
 	return i;
 }
 
-#define QuitEmulator()	QuitEmuNoExit() ; return NO;
+#define QuitEmulator()	{ QuitEmuNoExit() ; return NO; }
 
 bool InitEmulator (void)
 {
