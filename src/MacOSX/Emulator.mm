@@ -2,7 +2,7 @@
  *	Emulator.mm - Class whose actions are attached to GUI widgets in a window,
  *				  used to control a single Basilisk II emulated Macintosh. 
  *
- *	$Id: Emulator.mm,v 1.1 2002/03/16 04:00:09 nigel Exp $
+ *	$Id: Emulator.mm,v 1.2 2002/05/23 12:48:38 nigel Exp $
  *
  *  Basilisk II (C) 1997-2002 Christian Bauer
  *
@@ -202,6 +202,13 @@
 		[redraw	resume];
 	[tick	resume];
 	[xPRAM	resume];
+}
+
+- (IBAction) ScreenHideShow: (NSButton *)sender;
+{
+	WarningSheet(@"Nigel doesn't know how to shrink or grow this window",
+				 @"Maybe you can grab the source code and have a go yourself?",
+				 nil, win);
 }
 
 - (IBAction) Snapshot: (id) sender

@@ -2,7 +2,7 @@
  *	Emulator.h - Class whose actions are attached GUI widgets in a window,
  *				 used to control a single Basilisk II emulated Macintosh. 
  *
- *	$Id: Emulator.h,v 1.1 2002/03/16 04:00:04 nigel Exp $
+ *	$Id: Emulator.h,v 1.2 2002/05/23 12:48:38 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -61,6 +61,7 @@
 - (IBAction) Suspend:		(id)sender;
 - (IBAction) PowerKey:		(id)sender;
 - (IBAction) Restart:		(id)sender;
+- (IBAction) ScreenHideShow:(NSButton *)sender;
 - (IBAction) Snapshot:		(id)sender;
 - (IBAction) SpeedChange:	(NSSlider *)sender;
 - (IBAction) Resume:		(id)sender;
