@@ -2,7 +2,7 @@
  *	sysdeps.h - System dependent definitions for Mac OS X.
  *				Based on Unix version
  *
- *	$Id: sysdeps.h,v 1.1 2002/03/16 04:00:31 nigel Exp $
+ *	$Id: sysdeps.h,v 1.2 2002/10/29 14:28:52 nigel Exp $
  *
  *	Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -62,14 +62,22 @@
 #endif
 
 
+#include <AvailabilityMacros.h>
+
 /* Emulator and host address space are distinct */
 #ifndef REAL_ADDRESSING
-#define REAL_ADDRESSING 0
+# define REAL_ADDRESSING 0
 #endif
 
 /* Linear address translation (i.e. just an offset between Emulator & host)  */
 #ifndef DIRECT_ADDRESSING
-#define DIRECT_ADDRESSING 1
+# ifdef MAC_OS_X_VERSION_10_2
+/* For some reason, compiling on 10.2 with DIRECT_ADDRESSING enabled */
+/* gives an app that doesn't seem to me able to write to its screen! */
+#  define DIRECT_ADDRESSING 0
+# else
+#  define DIRECT_ADDRESSING 1
+# endif
 #endif
 
 /* Using 68k emulator */
