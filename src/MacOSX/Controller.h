@@ -1,7 +1,7 @@
 /*
  *	Controller.h - Simple application window management. 
  *
- *	$Id: Controller.h,v 1.3 2002/05/30 12:50:21 nigel Exp $
+ *	$Id: Controller.h,v 1.4 2003/01/10 23:01:48 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -39,6 +39,10 @@
 					 type:	(NSEventType)type;
 - (void) dispatchEvent:		(NSEvent *)event
 					 type:	(NSEventType)type;
+
+
+- (IBAction) HelpToDo:		(id)sender;
+- (IBAction) HelpVersions:	(id)sender;
 
 #ifdef ENABLE_MULTIPLE
 - (IBAction) NewEmulator:	(id)sender;
