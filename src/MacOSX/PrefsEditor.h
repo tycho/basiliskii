@@ -2,7 +2,7 @@
  *	PrefsEditor.h - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.h,v 1.3 2003/04/02 02:18:05 nigel Exp $
+ *	$Id: PrefsEditor.h,v 1.4 2003/08/16 02:51:46 nigel Exp $
  *
  *  Basilisk II (C) 1997-2001 Christian Bauer
  *
@@ -81,6 +81,7 @@
 	IBOutlet NSTextField	*frequency,
 							*height;
     IBOutlet NSButton		*IIci;
+	IBOutlet NSPopUpButton	*keyboard;
 	IBOutlet NSTextField	*MB,
 							*modem;
 	IBOutlet NSButton		*openGL;
@@ -119,6 +120,7 @@
 - (IBAction) ChangeDisableCD:	(NSButton *)sender;
 - (IBAction) ChangeDisableSound:(NSButton *)sender;
 - (IBAction) ChangeFPU:			(NSButton *)sender;
+- (IBAction) ChangeKeyboard:	(NSPopUpButton *)sender;
 - (IBAction) ChangeModel:		(NSMatrix *)sender;
 - (IBAction) ChangeScreen:	(id)sender;
 - (IBAction) CreateVolume:	(id)sender;
