@@ -1,5 +1,5 @@
 /*
- *	$Id: misc_macosx.h,v 1.2 2002/05/25 23:54:02 nigel Exp $
+ *	$Id: misc_macosx.h,v 1.3 2002/05/30 12:28:38 nigel Exp $
  *
  *	misc_macosx.h - Some prototypes of functions defined in misc_macosx.mm
  *
@@ -32,6 +32,7 @@ extern void ErrorSheet	 (NSString *msg,	NSWindow *win),
 						  NSString *button,	NSWindow *win),
 			InfoSheet	 (NSString *msg,	NSWindow *win),
 			InfoSheet	 (NSString *msg1,	NSString *msg2,
-						  NSString *button,	NSWindow *win);
+						  NSString *button,	NSWindow *win),
+			EndSheet (NSWindow * window);
 
 extern int	frequencyToTickDelay (float frequency);

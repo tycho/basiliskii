@@ -1,5 +1,5 @@
 /*
- *	$Id: misc_macosx.mm,v 1.2 2002/05/25 23:54:39 nigel Exp $
+ *	$Id: misc_macosx.mm,v 1.3 2002/05/30 12:28:38 nigel Exp $
  *
  *	misc_macosx.m - Miscellaneous Mac OS X routines.
  *
@@ -42,7 +42,8 @@ void ErrorSheet (NSString * message, NSWindow * window)
 	NSBeginCriticalAlertSheet(message, nil, nil, nil, window,
 									   nil, nil, nil, NULL, @"");
 	while ( [window attachedSheet] )
-		[NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow: 1.0]];
+		sleep(1);
+		//[NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow: 1.0]];
 }
 
 void ErrorSheet (NSString * message1, NSString * message2,
@@ -53,7 +54,8 @@ void ErrorSheet (NSString * message1, NSString * message2,
 	NSBeginCriticalAlertSheet(message1, button, nil, nil, window,
 									nil, nil, nil, NULL, message2);
 	while ( [window attachedSheet] )
-		[NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow: 1.0]];
+		sleep(1);
+		//[NSThread sleepUntilDate:[NSDate dateWithTimeIntervalSinceNow: 1.0]];
 }
 
 
@@ -90,6 +92,10 @@ void InfoSheet (NSString * message1, NSString * message2,
 										nil, nil, nil, NULL, message2);
 }
 
+void EndSheet (NSWindow * window)
+{
+	[[window attachedSheet] close];
+}
 
 // Convert a frequency (i.e. updates per second) to a 60hz tick delay, and update prefs
 int	frequencyToTickDelay (float freq)
