@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.5 2003/03/24 22:50:55 nigel Exp $
+ *  $Id: main_macosx.mm,v 1.6 2003/03/25 01:44:16 nigel Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -269,6 +269,8 @@ bool InitEmulator (void)
 	
 	// Get rom file path from preferences
 	const char *rom_path = PrefsFindString("rom");
+	if ( ! rom_path )
+		WarningAlert("No rom pathname set. Trying ./ROM");
 
 	// Load Mac ROM
 	int rom_fd = open(rom_path ? rom_path : ROM_FILE_NAME, O_RDONLY);
@@ -318,9 +320,6 @@ bool InitEmulator (void)
 
 void QuitEmuNoExit()
 {
-//	extern	NSApplication *NSApp;
-
-
 	D(bug("QuitEmulator\n"));
 
 	// Exit 680x0 emulation
@@ -361,14 +360,18 @@ void QuitEmuNoExit()
 
 	// Exit preferences
 	PrefsExit();
-
-	// Stop run loop?
-	//[NSApp terminate: nil];
 }
 
 void QuitEmulator(void)
 {
+	extern	NSApplication *NSApp;
+
+
 	QuitEmuNoExit();
+
+	// Stop run loop?
+	[NSApp terminate: nil];
+
 	exit(0);
 }
 
