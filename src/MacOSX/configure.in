@@ -1,5 +1,5 @@
 dnl Mac OS X configuration driver
-dnl $Id: configure.in,v 1.15 2004/01/29 12:28:53 nigel Exp $
+dnl $Id: configure.in,v 1.16 2005/06/12 23:36:33 gbeauche Exp $
 dnl Process this file with autoconf to produce a configure script.
 dnl Based on Unix/configure.in
 dnl Written in 1999 by Christian Bauer et al.
@@ -160,6 +160,7 @@ dnl Checks for header files.
 AC_HEADER_STDC
 AC_CHECK_HEADERS(unistd.h fcntl.h sys/types.h sys/time.h sys/mman.h mach/mach.h)
 AC_CHECK_HEADERS(readline.h history.h readline/readline.h readline/history.h)
+AC_CHECK_HEADERS(IOKit/storage/IOBlockStorageDevice.h)
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_BIGENDIAN

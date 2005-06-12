@@ -1,5 +1,5 @@
 /*
- *	$Id: sys_darwin.cpp,v 1.7 2005/01/30 21:42:13 gbeauche Exp $
+ *	$Id: sys_darwin.cpp,v 1.8 2005/06/12 23:36:33 gbeauche Exp $
  *
  *	sys_darwin.cpp - Extra Darwin system dependant routines. Called by:
  *
@@ -31,7 +31,7 @@
 #import <IOKit/serial/IOSerialKeys.h>
 #import <IOKit/storage/IOMedia.h>
 #import <IOKit/storage/IOMediaBSDClient.h>
-#ifdef MAC_OS_X_VERSION_10_2
+#ifdef HAVE_IOKIT_STORAGE_IOBLOCKSTORAGEDEVICE_H
 	#import <IOKit/storage/IOBlockStorageDevice.h>
 #endif
 #import <IOKit/storage/IOCDMedia.h>
