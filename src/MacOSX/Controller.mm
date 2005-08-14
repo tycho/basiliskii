@@ -1,7 +1,7 @@
 /*
  *	Controller.m - Simple application window management. 
  *
- *	$Id: Controller.mm,v 1.12 2005/01/30 21:42:13 gbeauche Exp $
+ *	$Id: Controller.mm,v 1.13 2005/08/14 12:21:27 nigel Exp $
  *
  *  Basilisk II (C) 1997-2005 Christian Bauer
  *
@@ -23,8 +23,6 @@
 #import "Controller.h"
 #import "Emulator.h"
 
-@implementation Controller
-
 #import "sysdeps.h"				// Types used in Basilisk C++ code
 
 #import <main.h>
@@ -35,6 +33,8 @@
 
 #import "misc_macosx.h"
 #import "video_macosx.h"
+
+@implementation Controller
 
 //
 // Standard NSApplication methods that we override
