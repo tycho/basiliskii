@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# $Id: 1_prepare_files.sh,v 1.11 2004/05/25 04:22:49 nigel Exp $
+# $Id: 1_prepare_files.sh,v 1.12 2005/09/19 07:38:55 nigel Exp $
 #
 # Run this to generate all the initial makefiles, etc.
 
@@ -50,8 +50,4 @@ fi
 # This mode isn't working yet - segfaults
 #./configure "$@" --enable-addressing=real
 
-# The default mode, which doesn't allow Classic ROMS and has black screen prob.
-#./configure "$@"
-
-# Classic ROM version, seems to fix black screen problem
-./configure "$@" --enable-addressing=banks
+./configure "$@"
