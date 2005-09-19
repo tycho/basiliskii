@@ -2,7 +2,7 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.16 2005/08/09 03:28:53 nigel Exp $
+ *	$Id: PrefsEditor.mm,v 1.17 2005/09/19 06:02:47 nigel Exp $
  *
  *  Basilisk II (C) 1997-2005 Christian Bauer
  *
@@ -131,7 +131,7 @@ extern string UserPrefsPath;	// from prefs_unix.cpp
 	edited = NO;
 
 	devs = @"/dev";
-	home = NSHomeDirectory();
+	home = [NSHomeDirectory() retain];
 	volsDS = [TableDS new];
 	SCSIds = [TableDS new];
 
@@ -140,10 +140,9 @@ extern string UserPrefsPath;	// from prefs_unix.cpp
 		NSLog (@"%s - Can't create NSImageCell?", __PRETTY_FUNCTION__);
 
 	blank  = [NSImage new];
-	locked = [NSImage alloc];
-	if ( [locked initWithContentsOfFile:
-				 [[NSBundle mainBundle]
-						pathForImageResource: @"nowrite.icns"]] == nil )
+	locked = [[NSImage alloc] initWithContentsOfFile:
+				[[NSBundle mainBundle] pathForImageResource: @"nowrite.icns"]];
+	if (locked == nil )
 		NSLog(@"%s - Couldn't open write protection image", __PRETTY_FUNCTION__);
 
 	return self;
@@ -151,11 +150,11 @@ extern string UserPrefsPath;	// from prefs_unix.cpp
 
 - (void) dealloc
 {
-	[volsDS   dealloc];
-	[SCSIds   dealloc];
-	[lockCell dealloc];
-	[locked   dealloc];
-	[blank    dealloc];
+	[volsDS   release];
+	[SCSIds   release];
+	[lockCell release];
+	[blank    release];
+	[locked   release];
 	[super    dealloc];
 }
 
