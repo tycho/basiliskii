@@ -2,7 +2,7 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.17 2005/09/19 06:02:47 nigel Exp $
+ *	$Id: PrefsEditor.mm,v 1.18 2005/10/15 10:38:22 nigel Exp $
  *
  *  Basilisk II (C) 1997-2005 Christian Bauer
  *
@@ -150,6 +150,7 @@ extern string UserPrefsPath;	// from prefs_unix.cpp
 
 - (void) dealloc
 {
+	[home     release];
 	[volsDS   release];
 	[SCSIds   release];
 	[lockCell release];
@@ -261,7 +262,11 @@ extern string UserPrefsPath;	// from prefs_unix.cpp
 - (IBAction) ChangeBootFrom: (NSMatrix *)sender
 {
 	if ( [sender selectedCell] == (id)bootFromCD )
+	{
+		[disableCD setState: NSOffState];
+
 		PrefsReplaceInt32("bootdriver", CDROMRefNum);
+	}
 	else
 		PrefsReplaceInt32("bootdriver", 0);
 	edited = YES;
@@ -275,7 +280,14 @@ extern string UserPrefsPath;	// from prefs_unix.cpp
 
 - (IBAction) ChangeDisableCD: (NSButton *)sender
 {
-	PrefsReplaceBool("nocdrom", [disableCD state]);
+	int disabled = [disableCD state];
+
+	PrefsReplaceBool("nocdrom", disabled);
+	if ( disabled )
+	{
+		[bootFromAny setState: NSOnState];
+		[bootFromCD setState: ![disableCD state]];
+	}
 	edited = YES;
 }
 
