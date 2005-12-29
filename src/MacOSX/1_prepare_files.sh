@@ -1,11 +1,12 @@
 #!/bin/sh
 #
-# $Id: 1_prepare_files.sh,v 1.12 2005/09/19 07:38:55 nigel Exp $
+# $Id: 1_prepare_files.sh,v 1.13 2005/12/29 13:06:12 nigel Exp $
 #
 # Run this to generate all the initial makefiles, etc.
 
 ln -sf ../Unix/config.guess .
 ln -sf ../Unix/config.sub   .
+ln -sf ../Unix/semaphore.h  .
 cp -pf ../Unix/sys_unix.cpp .
 cp -pf ../Unix/timer_unix.cpp .
 ln -sf ../Unix/user_strings_unix.h .
