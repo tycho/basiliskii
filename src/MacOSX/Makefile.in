@@ -1,4 +1,4 @@
-# $Id: Makefile.in,v 1.17 2005/12/29 13:06:12 nigel Exp $
+# $Id: Makefile.in,v 1.18 2006/01/04 06:11:04 nigel Exp $
 # MacOS X makefile for Basilisk II. Slightly based on the Unix one
 
 ## System specific configuration
@@ -82,6 +82,7 @@ nowrite.icns :
 
 mostlyclean:
 	rm -fr English.lproj/*~* $(OBJ_DIR)/* core* *.core *~ *.bak
+	rm -fr autom4te.cache
 
 clean: mostlyclean
 	rm -f $(SLIRP_LIB)
