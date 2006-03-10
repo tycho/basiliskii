@@ -1,9 +1,9 @@
 /*
  *	Controller.m - Simple application window management. 
  *
- *	$Id: Controller.mm,v 1.13 2005/08/14 12:21:27 nigel Exp $
+ *	$Id: Controller.mm,v 1.14 2006/03/10 08:16:56 nigel Exp $
  *
- *  Basilisk II (C) 1997-2005 Christian Bauer
+ *  Basilisk II (C) 1997-2006 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -67,9 +67,19 @@
 
 - (void) sendEvent: (NSEvent *)event;
 {
+	// We can either process the event ourselves,
+	// or pass it to our superclass for the other UI objects to process
+	bool	passToSuper = false;
+
 	if ( [self isAnyEmulatorDisplayingSheets] ||
 			[[thePrefsEditor window] isVisible] || ! [self isAnyEmulatorRunning] )
-		[super sendEvent: event];
+		passToSuper = true;
+
+	if ( [[theEmulator screen] isFullScreen] )
+		passToSuper = false;
+
+	if ( passToSuper )
+		[super sendEvent: event];		// NSApplication default
 	else
 	{
 		NSEventType	type = [event type];
