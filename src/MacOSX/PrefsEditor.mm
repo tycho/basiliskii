@@ -2,9 +2,9 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.18 2005/10/15 10:38:22 nigel Exp $
+ *	$Id: PrefsEditor.mm,v 1.19 2006/03/14 09:38:24 nigel Exp $
  *
- *  Basilisk II (C) 1997-2005 Christian Bauer
+ *  Basilisk II (C) 1997-2006 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -336,7 +336,7 @@ extern string UserPrefsPath;	// from prefs_unix.cpp
 #else
 	if ( newbpp != 32 )
 		WarningSheet(@"Sorry - In windowed mode, depth must be 32", panel);
-	return 32
+	return 32;
 #endif
 }
 
