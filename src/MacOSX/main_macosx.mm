@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.15 2006/03/11 11:45:25 nigel Exp $
+ *  $Id: main_macosx.mm,v 1.16 2006/05/08 16:56:07 gbeauche Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -54,7 +54,7 @@ using std::string;
 #include "xpram.h"
 
 #if USE_JIT
-extern void flush_icache_range(uint32 start, uint32 size);  // from compemu_support.cpp
+extern void flush_icache_range(uint8 *start, uint32 size);  // from compemu_support.cpp
 #endif
 
 #ifdef ENABLE_MON
@@ -498,7 +498,7 @@ void FlushCodeCache(void *start, uint32 size)
 {
 #if USE_JIT
     if (UseJIT)
-		flush_icache_range((uintptr)start, size);
+		flush_icache_range((uint8 *)start, size);
 #endif
 }
 
