@@ -1,7 +1,7 @@
 /*
  *	EmulatorView.mm - Custom NSView for Basilisk II windowed graphics output
  *
- *	$Id: EmulatorView.mm,v 1.14 2005/01/30 21:42:13 gbeauche Exp $
+ *	$Id: EmulatorView.mm,v 1.15 2006/05/14 10:17:06 nigel Exp $
  *
  *  Basilisk II (C) 1997-2005 Christian Bauer
  *
@@ -232,7 +232,7 @@ static int prevFlags;
 
     if ( ! b )
 	{
-		ErrorAlert("Could not allocate an NSBitmapImageRep for the TIFF");
+		ErrorAlert("Could not allocate an NSBitmapImageRep for the TIFF\nTry setting the emulation to millions of colours?");
 		return nil;
 	}
 
