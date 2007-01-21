@@ -1,5 +1,5 @@
 /*
- *	$Id: sys_darwin.cpp,v 1.10 2007/01/21 17:27:15 asvitkine Exp $
+ *	$Id: sys_darwin.cpp,v 1.11 2007/01/21 18:06:39 asvitkine Exp $
  *
  *	sys_darwin.cpp - Extra Darwin system dependant routines. Called by:
  *
@@ -257,14 +257,15 @@ void DarwinAddFloppyPrefs(void)
 			D(bug("Got size of %ld\n", size));
 			if ( size < 800 * 1024 || size > 1440 * 1024 )
 			{
-				D(puts("Device does not appear to be 800k or 1440k\n"));
+				D(puts("Device does not appear to be 800k or 1440k"));
 				continue;
 			}
 		}
-		else
-			bug("Couldn't get kIOMediaSizeKey of device\n");
-		
-		
+		else {
+			D(puts("Couldn't get kIOMediaSizeKey of device"));
+			continue; // if kIOMediaSizeKey is unavailable, we shouldn't use it anyway
+		}
+
 		*bsdPath = '\0';
 		if ( bsdPathAsCFString )
 		{
