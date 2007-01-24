@@ -1,5 +1,5 @@
 /*
- *	$Id: extfs_macosx.mm,v 1.8 2007/01/22 17:14:06 asvitkine Exp $
+ *	$Id: extfs_macosx.mm,v 1.9 2007/01/24 02:37:06 asvitkine Exp $
  *
  *	extfs_macosx.mm - Access Mac OS X Finder and resource information (using Carbon calls).
  *                    Based on:
@@ -431,6 +431,22 @@ const char *host_encoding_to_macroman(const char *filename)
 	if (sref) {
 		memset(filename_mr, 0, sizeof(filename_mr));
 		if (CFStringGetCString(sref, filename_mr, sizeof(filename_mr), kCFStringEncodingMacRoman)) {
+			return filename_mr;
+		}
+		CFRelease(sref);
+	}
+	return filename;
+}
+
+
+// Convert from MacRoman to the host OS filename encoding
+const char *macroman_to_host_encoding(const char *filename)
+{
+	static char filename_mr[64];
+	CFStringRef sref = CFStringCreateWithCString(0, filename, kCFStringEncodingMacRoman);
+	if (sref) {
+		memset(filename_mr, 0, sizeof(filename_mr));
+		if (CFStringGetCString(sref, filename_mr, sizeof(filename_mr), kCFStringEncodingUTF8)) {
 			return filename_mr;
 		}
 		CFRelease(sref);
