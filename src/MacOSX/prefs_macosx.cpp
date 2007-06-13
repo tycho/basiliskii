@@ -1,5 +1,5 @@
 /*
- *	$Id: prefs_macosx.cpp,v 1.9 2005/01/30 21:42:13 gbeauche Exp $
+ *	$Id: prefs_macosx.cpp,v 1.10 2007/06/13 16:11:31 gbeauche Exp $
  *
  *  prefs_macosx.cpp - Preferences handling, Mac OS X specific.
  *					   Based on prefs_unix.cpp
@@ -37,6 +37,7 @@ prefs_desc platform_prefs_items[] = {
 #ifdef HAVE_SIGSEGV_SKIP_INSTRUCTION
 	{"ignoresegv", TYPE_BOOLEAN, false,    "ignore illegal memory accesses"},
 #endif
+	{"idlewait", TYPE_BOOLEAN, false,      "sleep when idle"},
 	{NULL, TYPE_END, false, NULL} // End of list
 };
 
@@ -133,4 +134,5 @@ void AddPlatformPrefsDefaults(void)
 #ifdef HAVE_SIGSEGV_SKIP_INSTRUCTION
 	PrefsAddBool("ignoresegv", false);
 #endif
+	PrefsAddBool("idlewait", true);
 }
