@@ -2,7 +2,7 @@
  *	Emulator.mm - Class whose actions are attached to GUI widgets in a window,
  *				  used to control a single Basilisk II emulated Macintosh. 
  *
- *	$Id: Emulator.mm,v 1.11 2005/01/30 21:42:13 gbeauche Exp $
+ *	$Id: Emulator.mm,v 1.12 2007/06/13 16:10:05 gbeauche Exp $
  *
  *  Basilisk II (C) 1997-2005 Christian Bauer
  *
@@ -424,8 +424,13 @@ uint8 lastXPRAM[XPRAM_SIZE];		// Copy of PRAM
 
 - (void) RTCinterrupt
 {
-	if ( uaeCreated )
-		WriteMacInt32 (0x20c, TimerDateTime() );	// Update MacOS time
+	if ( ! uaeCreated )
+		return;
+
+	WriteMacInt32 (0x20c, TimerDateTime() );	// Update MacOS time
+
+	SetInterruptFlag(INTFLAG_1HZ);
+	TriggerInterrupt();
 }
 
 - (void) redrawScreen
