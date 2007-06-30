@@ -1,7 +1,7 @@
 /*
  *	video_macosx.h - Some video constants and globals
  *
- *	$Id: video_macosx.h,v 1.10 2005/01/30 21:42:13 gbeauche Exp $
+ *	$Id: video_macosx.h,v 1.11 2007/06/30 07:33:30 gbeauche Exp $
  *
  *  Basilisk II (C) 1997-2005 Christian Bauer
  *
@@ -24,8 +24,13 @@
 
 /* Set the strategy for drawing the bitmap in the Mac OS X window */
 //#define CGDRAWBITMAP
+#if defined __i386__
+//#define CGIMAGEREF
+#define NSBITMAP
+#else
 #define CGIMAGEREF
 //#define NSBITMAP
+#endif
 
 // Using Core Graphics is fastest when rendering 32bit data.
 // Using CGImageRefs allows us to use all the bitmaps that BasiliskII supports.
