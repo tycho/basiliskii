@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.17 2007/01/13 18:21:30 gbeauche Exp $
+ *  $Id: main_macosx.mm,v 1.18 2007/12/30 08:47:34 gbeauche Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -129,13 +129,13 @@ static int vm_acquire_mac_fixed(void *addr, size_t size)
  *  SIGSEGV handler
  */
 
-static sigsegv_return_t sigsegv_handler(sigsegv_address_t fault_address,
-										sigsegv_address_t fault_instruction)
+static sigsegv_return_t sigsegv_handler(sigsegv_info_t *sip)
 {
+	const uintptr fault_address = (uintptr)sigsegv_get_fault_address(sip);
 #if ENABLE_VOSF
 	// Handle screen fault
-	extern bool Screen_fault_handler(sigsegv_address_t, sigsegv_address_t);
-	if (Screen_fault_handler(fault_address, fault_instruction))
+	extern bool Screen_fault_handler(sigsegv_info_t *sip);
+	if (Screen_fault_handler(sip))
 		return SIGSEGV_RETURN_SUCCESS;
 #endif
 
@@ -157,10 +157,12 @@ static sigsegv_return_t sigsegv_handler(sigsegv_address_t fault_address,
  *  Dump state when everything went wrong after a SEGV
  */
 
-static void sigsegv_dump_state(sigsegv_address_t fault_address, sigsegv_address_t fault_instruction)
+static void sigsegv_dump_state(sigsegv_info_t *sip)
 {
+	const sigsegv_address_t fault_address = sigsegv_get_fault_address(sip);
+	const sigsegv_address_t fault_instruction = sigsegv_get_fault_instruction_address(sip);
 	fprintf(stderr, "Caught SIGSEGV at address %p", fault_address);
-	if (fault_instruction != SIGSEGV_INVALID_PC)
+	if (fault_instruction != SIGSEGV_INVALID_ADDRESS)
 		fprintf(stderr, " [IP=%p]", fault_instruction);
 	fprintf(stderr, "\n");
 	uaecptr nextpc;
