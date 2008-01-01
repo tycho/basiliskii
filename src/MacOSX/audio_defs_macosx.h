@@ -1,12 +1,12 @@
 /*
- *	$Id: audio_defs_macosx.h,v 1.4 2006/01/16 23:10:33 nigel Exp $
+ *	$Id: audio_defs_macosx.h,v 1.5 2008/01/01 09:40:32 gbeauche Exp $
  *
  *	audio_defs_macosx.h - Work around clashes with the enums in <CarbonCore/OSUtils.h>
  *						  Based on:
  *
  *  audio_defs.h - Definitions for MacOS audio components
  *
- *  Basilisk II (C) 1997-2006 Christian Bauer
+ *  Basilisk II (C) 1997-2008 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

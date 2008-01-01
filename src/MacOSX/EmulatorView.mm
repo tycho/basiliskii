@@ -1,9 +1,9 @@
 /*
  *	EmulatorView.mm - Custom NSView for Basilisk II windowed graphics output
  *
- *	$Id: EmulatorView.mm,v 1.15 2006/05/14 10:17:06 nigel Exp $
+ *	$Id: EmulatorView.mm,v 1.16 2008/01/01 09:40:32 gbeauche Exp $
  *
- *  Basilisk II (C) 1997-2005 Christian Bauer
+ *  Basilisk II (C) 1997-2008 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

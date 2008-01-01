@@ -1,12 +1,12 @@
 /*
- *	$Id: macos_util_macosx.h,v 1.4 2005/01/30 21:42:13 gbeauche Exp $
+ *	$Id: macos_util_macosx.h,v 1.5 2008/01/01 09:40:32 gbeauche Exp $
  *
  *	macos_util_macosx.h - Work around clashes with the enums in <CarbonCore/OSUtils.h>
  *						  Based on:
  *
  *  macos_util.h - MacOS definitions/utility functions
  *
- *  Basilisk II (C) 1997-2005 Christian Bauer
+ *  Basilisk II (C) 1997-2008 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

@@ -1,9 +1,9 @@
 /*
  *	Controller.m - Simple application window management. 
  *
- *	$Id: Controller.mm,v 1.14 2006/03/10 08:16:56 nigel Exp $
+ *	$Id: Controller.mm,v 1.15 2008/01/01 09:40:32 gbeauche Exp $
  *
- *  Basilisk II (C) 1997-2006 Christian Bauer
+ *  Basilisk II (C) 1997-2008 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

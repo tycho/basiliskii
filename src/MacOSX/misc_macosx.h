@@ -1,9 +1,9 @@
 /*
- *	$Id: misc_macosx.h,v 1.5 2005/01/30 21:42:13 gbeauche Exp $
+ *	$Id: misc_macosx.h,v 1.6 2008/01/01 09:40:32 gbeauche Exp $
  *
  *	misc_macosx.h - Some prototypes of functions defined in misc_macosx.mm
  *
- *  Basilisk II (C) 1997-2005 Christian Bauer
+ *  Basilisk II (C) 1997-2008 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

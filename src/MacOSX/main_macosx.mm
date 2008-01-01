@@ -1,11 +1,11 @@
 /*
- *  $Id: main_macosx.mm,v 1.18 2007/12/30 08:47:34 gbeauche Exp $
+ *  $Id: main_macosx.mm,v 1.19 2008/01/01 09:40:32 gbeauche Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
 						and on Basilisk's main_unix.cpp
  *
- *  Basilisk II (C) 1997-2005 Christian Bauer
+ *  Basilisk II (C) 1997-2008 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

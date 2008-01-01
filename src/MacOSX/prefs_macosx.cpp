@@ -1,10 +1,10 @@
 /*
- *	$Id: prefs_macosx.cpp,v 1.10 2007/06/13 16:11:31 gbeauche Exp $
+ *	$Id: prefs_macosx.cpp,v 1.11 2008/01/01 09:40:32 gbeauche Exp $
  *
  *  prefs_macosx.cpp - Preferences handling, Mac OS X specific.
  *					   Based on prefs_unix.cpp
  *
- *  Basilisk II (C) 1997-2005 Christian Bauer
+ *  Basilisk II (C) 1997-2008 Christian Bauer
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by

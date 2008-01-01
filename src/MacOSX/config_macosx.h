@@ -1,9 +1,9 @@
 /*
  *	config_macosx.h - MacOS X macros determined at compile-time
  *
- *	$Id: config_macosx.h,v 1.2 2007/06/15 22:54:24 gbeauche Exp $
+ *	$Id: config_macosx.h,v 1.3 2008/01/01 09:40:32 gbeauche Exp $
  *
- *	Basilisk II (C) 1997-2005 Christian Bauer
+ *	Basilisk II (C) 1997-2008 Christian Bauer
  *
  *	This program is free software; you can redistribute it and/or modify
  *	it under the terms of the GNU General Public License as published by
