@@ -1,5 +1,5 @@
 /*
- *	$Id: sys_darwin.cpp,v 1.13 2008/01/01 09:40:32 gbeauche Exp $
+ *	$Id: sys_darwin.cpp,v 1.14 2008/02/04 01:02:58 nigel Exp $
  *
  *	sys_darwin.cpp - Extra Darwin system dependant routines. Called by:
  *
@@ -115,7 +115,7 @@ static kern_return_t get_device_path(io_object_t obj, char *path, size_t maxPath
 static void media_arrived(int type, io_iterator_t iterator)
 {
 	io_object_t obj;
-	while ((obj = IOIteratorNext(iterator)) != NULL) {
+	while ((obj = IOIteratorNext(iterator))) {
 		char path[MAXPATHLEN];
 		kern_return_t kernResult = get_device_path(obj, path, sizeof(path));
 		if (kernResult == KERN_SUCCESS) {
@@ -137,7 +137,7 @@ static void media_arrived(int type, io_iterator_t iterator)
 static void media_removed(int type, io_iterator_t iterator)
 {
 	io_object_t obj;
-	while ((obj = IOIteratorNext(iterator)) != NULL) {
+	while ((obj = IOIteratorNext(iterator))) {
 		char path[MAXPATHLEN];
 		kern_return_t kernResult = get_device_path(obj, path, sizeof(path));
 		if (kernResult == KERN_SUCCESS) {
