@@ -2,7 +2,7 @@
  *	Emulator.h - Class whose actions are attached GUI widgets in a window,
  *				 used to control a single Basilisk II emulated Macintosh. 
  *
- *	$Id: Emulator.h,v 1.6 2008/01/01 09:40:32 gbeauche Exp $
+ *	$Id: Emulator.h,v 1.7 2008/12/09 18:03:35 asvitkine Exp $
  *
  *  Basilisk II (C) 1997-2008 Christian Bauer
  *
@@ -21,6 +21,7 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
+#import <Carbon/Carbon.h>
 #import <Cocoa/Cocoa.h>
 #import "EmulatorView.h"
 #import "NNThread.h"

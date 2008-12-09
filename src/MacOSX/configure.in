@@ -1,5 +1,5 @@
 dnl Mac OS X configuration driver
-dnl $Id: configure.in,v 1.26 2007/06/15 22:54:23 gbeauche Exp $
+dnl $Id: configure.in,v 1.27 2008/12/09 18:03:35 asvitkine Exp $
 dnl Process this file with autoconf to produce a configure script.
 dnl Based on Unix/configure.in
 dnl Written in 1999 by Christian Bauer et al.
@@ -671,10 +671,11 @@ if [[ "x$HAVE_GCC30" = "xyes" ]]; then
   CFLAGS="$CFLAGS -fno-strict-aliasing"
   AC_CACHE_CHECK([whether the compiler supports -fno-strict-aliasing],
     ac_cv_gcc_no_strict_aliasing, [
-    AC_TRY_COMPILE([],[],
-      [ac_cv_gcc_no_strict_aliasing=yes; AC_SUBST(SLIRP_CFLAGS, "-fno-strict-aliasing")],
-      [ac_cv_gcc_no_strict_aliasing=no])
+    AC_TRY_COMPILE([],[],[ac_cv_gcc_no_strict_aliasing=yes],[ac_cv_gcc_no_strict_aliasing=no])
   ])
+  if [[ "x$ac_cv_gcc_no_strict_aliasing" = "xyes" ]]; then
+    AC_SUBST(SLIRP_CFLAGS, "-fno-strict-aliasing")
+  fi
   CFLAGS="$SAVED_CFLAGS"
 fi
 
