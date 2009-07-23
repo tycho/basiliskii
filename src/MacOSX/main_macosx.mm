@@ -1,5 +1,5 @@
 /*
- *  $Id: main_macosx.mm,v 1.20 2008/02/04 01:00:53 nigel Exp $
+ *  $Id: main_macosx.mm,v 1.21 2009/07/23 19:19:14 asvitkine Exp $
  *
  *  main_macosx.mm -	Startup code for MacOS X
  *						Based (in a small way) on the default main.m,
@@ -286,6 +286,7 @@ int main(int argc, char **argv)
 
 bool InitEmulator (void)
 {
+	const char *vmdir = NULL;
 	char str[256];
 
 
@@ -423,7 +424,7 @@ bool InitEmulator (void)
 
 
 	// Initialize everything
-	if (!InitAll())
+	if (!InitAll(vmdir))
 		QuitEmulator();
 	D(bug("Initialization complete\n"));
 
