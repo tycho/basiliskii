@@ -2,7 +2,7 @@
  *	Emulator.mm - Class whose actions are attached to GUI widgets in a window,
  *				  used to control a single Basilisk II emulated Macintosh. 
  *
- *	$Id: Emulator.mm,v 1.13 2008/01/01 09:40:32 gbeauche Exp $
+ *	$Id: Emulator.mm,v 1.14 2009/10/08 09:20:51 nigel Exp $
  *
  *  Basilisk II (C) 1997-2008 Christian Bauer
  *
@@ -35,7 +35,8 @@
 #import "prefs.h"
 #import "timer.h"
 
-#undef check				// memory.h defines a check macro, clashes with an OS X one?
+#undef check				// memory.h defines a check macro,
+							// which may clash with an OS X one on 10.1 or 10.2
 #import "cpu_emulation.h"
 
 #define DEBUG 0
@@ -218,7 +219,7 @@
 		int	argc = 0;
 		char **argv;
 
-		PrefsInit(argc, argv);
+		PrefsInit(NULL, argc, argv);
 		SysInit();
 
 		emul = [NNThread new];
