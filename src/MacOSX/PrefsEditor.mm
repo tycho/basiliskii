@@ -2,7 +2,7 @@
  *	PrefsEditor.m - GUI stuff for Basilisk II preferences
  *					(which is a text file in the user's home directory)
  *
- *	$Id: PrefsEditor.mm,v 1.20 2008/01/01 09:40:32 gbeauche Exp $
+ *	$Id: PrefsEditor.mm,v 1.21 2009/11/06 21:33:03 nigel Exp $
  *
  *  Basilisk II (C) 1997-2008 Christian Bauer
  *
@@ -662,7 +662,7 @@ shouldProceedAfterError: (NSDictionary *) errorDict
 
 	PrefsExit();				// Purge all the old pref values
 
-	PrefsInit(argc, argv);
+	PrefsInit(NULL, argc, argv);
 	AddPrefsDefaults();
 	AddPlatformPrefsDefaults();	// and only create basic ones
 

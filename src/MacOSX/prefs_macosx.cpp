@@ -1,5 +1,5 @@
 /*
- *	$Id: prefs_macosx.cpp,v 1.11 2008/01/01 09:40:32 gbeauche Exp $
+ *	$Id: prefs_macosx.cpp,v 1.12 2009/11/06 21:33:03 nigel Exp $
  *
  *  prefs_macosx.cpp - Preferences handling, Mac OS X specific.
  *					   Based on prefs_unix.cpp
@@ -52,8 +52,20 @@ static string prefs_path;
  *  Load preferences from settings file
  */
 
-void LoadPrefs(void)
+void LoadPrefs(const char *vmdir)
 {
+	if (vmdir) {
+		prefs_path = string(vmdir) + '/' + string("prefs");
+		FILE *prefs = fopen(prefs_path.c_str(), "r");
+		if (!prefs) {
+			printf("No file at %s found.\n", prefs_path.c_str());
+			exit(1);
+		}
+		LoadPrefsFromStream(prefs);
+		fclose(prefs);
+		return;
+	}
+
 	// Construct prefs path
 	if (UserPrefsPath.empty()) {
 		char *home = getenv("HOME");
