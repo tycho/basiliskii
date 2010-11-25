@@ -14,6 +14,15 @@ dnl Some systems do not put corefiles in the currect directory, avoid saving
 dnl cores for the configure tests since some are intended to dump core.
 ulimit -c 0
 
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_CC_C_O
+AC_PROG_CPP
+AC_PROG_CXX
+AC_PROG_MAKE_SET
+AC_PROG_INSTALL
+AC_PROG_EGREP
+
 AC_ARG_ENABLE(standalone-gui,[  --enable-standalone-gui enable a standalone GUI prefs editor [default=no]], [WANT_STANDALONE_GUI=$enableval], [WANT_STANDALONE_GUI=no])
 
 dnl Video options.
@@ -64,14 +73,7 @@ AC_ARG_ENABLE(addressing,
 
 dnl External packages.
 AC_ARG_WITH(esd,             [  --with-esd              support ESD for sound under Linux/FreeBSD [default=yes]], [WANT_ESD=$withval], [WANT_ESD=yes])
-AC_ARG_WITH(gtk,             [  --with-gtk              use GTK user interface [default=yes]],
-  [case "$withval" in
-   gtk1)      WANT_GTK="gtk";;
-   gtk|gtk2)  WANT_GTK="$withval";;
-   yes)       WANT_GTK="gtk2 gtk";;
-   *)         WANT_GTK="no";;
-   esac],
-  [WANT_GTK="gtk2 gtk"])
+AC_ARG_WITH(gtk,             [  --with-gtk              use GTK user interface [default=yes]], [WANT_GTK=$withval], [WANT_GTK=yes])
 AC_ARG_WITH(mon,             [  --with-mon              use mon as debugger [default=yes]], [WANT_MON=$withval], [WANT_MON=yes])
 
 AC_ARG_WITH(bincue,   
@@ -125,15 +127,6 @@ if [[ "x$HAVE_I386" = "xyes" ]]; then
     HAVE_X86_64=yes
   ])
 fi
-
-dnl Checks for programs.
-AC_PROG_CC
-AC_PROG_CC_C_O
-AC_PROG_CPP
-AC_PROG_CXX
-AC_PROG_MAKE_SET
-AC_PROG_INSTALL
-AC_PROG_EGREP
 
 dnl We use mon if possible.
 MONSRCS=
@@ -340,43 +333,23 @@ fi
 dnl We use GTK+ if possible.
 UISRCS=../dummy/prefs_editor_dummy.cpp
 case "x$WANT_GTK" in
-xgtk2*)
-  AM_PATH_GTK_2_0(1.3.15, [
+xyes | xgtk2)
+  AM_PATH_GTK_2_0(2.16.0, [
     GUI_CFLAGS="$GTK_CFLAGS"
     GUI_LIBS="$GTK_LIBS"
     WANT_GTK=gtk2
   ], [
-    case "x${WANT_GTK}x" in
-    *gtkx)
-      AC_MSG_WARN([Could not find GTK+ 2.0, trying with GTK+ 1.2.])
-      WANT_GTK=gtk
-      ;;
-    *)
-      AC_MSG_WARN([Could not find GTK+, disabling user interface.])
-      WANT_GTK=no
-      ;;
-    esac
-  ])
-  ;;
-esac
-if [[ "x$WANT_GTK" = "xgtk" ]]; then
-  AM_PATH_GTK(1.2.0, [
-    GUI_CFLAGS="$GTK_CFLAGS"
-    GUI_LIBS="$GTK_LIBS"
-    dnl somehow, <gnome-i18n.h> would redefine gettext() to nothing if
-    dnl ENABLE_NLS is not set, thusly conflicting with C++ <string> which
-    dnl includes <libintl.h>
-    AM_GNU_GETTEXT
-    B2_PATH_GNOMEUI([
-      AC_DEFINE(HAVE_GNOMEUI, 1, [Define if libgnomeui is available.])
-      GUI_CFLAGS="$GUI_CFLAGS $GNOMEUI_CFLAGS"
-      GUI_LIBS="$GUI_LIBS $GNOMEUI_LIBS"
-    ], [])
-  ], [
-    AC_MSG_WARN([Could not find GTK+, disabling user interface.])
+    AC_MSG_WARN([Could not find GTK+ 2.16.0 or later, disabling user interface.])
     WANT_GTK=no
   ])
-fi
+  ;;
+xgtk)
+  WANT_GTK=no
+  ;;
+*)
+  WANT_GTK=no
+  ;;
+esac
 if [[ "x$WANT_GTK" != "xno" -a "x$WANT_STANDALONE_GUI" = "xno" ]]; then
   AC_DEFINE(ENABLE_GTK, 1, [Define if using GTK.])
   UISRCS=prefs_editor_gtk.cpp
